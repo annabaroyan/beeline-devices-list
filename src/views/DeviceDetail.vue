@@ -35,8 +35,7 @@
 										{{ s.series }}
 									</a>
 								</div>
-								<div
-		                            v-else 
+								<div v-else 
 		                            class="form-group col-12">
 		                            <input
 		                                v-model.trim="seriesName" 

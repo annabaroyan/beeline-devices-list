@@ -1,7 +1,6 @@
+/*eslint-desable*/
 import { createRouter, createWebHistory } from 'vue-router'
-// import Home from '../views/Home.vue';
 import DevicesList from '../views/DevicesList.vue';
-import AddDevice from '../views/AddDevice.vue';
 import DeviceDetail from '../views/DeviceDetail.vue';
 
 const routes = [
