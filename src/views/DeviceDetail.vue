@@ -1,6 +1,11 @@
 <template>
 	<div class="container device-detail">
 		<div class="row">
+			<div class="col-12 mb-2">
+				<h2>{{ deviceName }}</h2>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-12 mb-4">
 				<form @submit.prevent="addSeriesNum">
 					<div class="input-group">
@@ -10,7 +15,8 @@
 							v-model.trim="seriesNum" />
 						<button 
 							class="btn btn-primary"
-							type="submit">
+							type="submit"
+							:disabled="seriesNum.length === 0">
 							Добавить серийный номер
 						</button>
 					</div>
@@ -89,6 +95,7 @@ import axios from 'axios';
 export default {
 	data() {
 		return {
+			deviceName: '',
 			series: [],
 			seriesName: '',
 			seriesNum: '',
@@ -143,6 +150,7 @@ export default {
 		async getDeviceSeries() {
 			const {data} = await axios.get(`https://device-ed123-default-rtdb.europe-west1.firebasedatabase.app/devices/${this.$route.params.id}.json`);
 			// console.log('DATA', Object.keys(data.series));
+			this.deviceName = data.deviceName.deviceName;
 			if ( data.series) {
 				this.series = data.series;
 				console.log('SERIES', this.series);

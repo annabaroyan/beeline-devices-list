@@ -3,11 +3,11 @@
         <div v-if="devices.length !== 0">
             <ul class="list-group">
                 <li 
-                class="list-group-item d-flex align-items-center"
+                class="list-group-item d-md-flex align-items-center"
                 v-for="device in devices"
                 :key="device.id"
                 >
-                    <div class="col-md-10 d-flex justify-content-left">
+                    <div class="col-md-10 col-12 d-md-flex justify-content-left mb-md-0 mb-2">
                         <router-link 
                         v-if="device.isEdit === false"
                         :to="`/device/${device.id}`">
@@ -22,25 +22,25 @@
                                 class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-2 d-flex justify-content-between">
+                    <div class="col-md-2 col-12 d-flex flex-md-row flex-column justify-content-md-between justify-content-center">
                         <div>
                             <button 
                                 v-if="device.isEdit === false"
                                 @click="editDevice(device.id)"
-                                class="btn btn-warning">
+                                class="btn btn-warning mb-md-0 mb-2 w-100">
                                 изменить
                             </button>
                             <button
                                 v-else
                                 @click="saveDevice(device.id)"
-                                class="btn btn-success"
+                                class="btn btn-success mb-md-0 mb-2 w-100"
                                 >сохранить
                             </button>
                         </div>
                         <div>
                             <button
                                 @click="deleteDevice(device.id)" 
-                                class="btn btn-danger">
+                                class="btn btn-danger w-100">
                                 удалить
                             </button>
                         </div>
